@@ -1,16 +1,12 @@
 $(document).ready(function() {
     $("#submit_btn").click(function() { 
+
         //get input field values
         var user_name       = $('input[name=name]').val(); 
         var user_email      = $('input[name=email]').val();
         var user_message    = $('textarea[name=message]').val();
 
-        
-        $("input[name='features[]']:checked").each(function()
-        {
-            features.push($(this).val());
-        });
-        
+        $.ajaxSetup({cache: false});
         //simple validation at client's end
         //we simply change border color to red if empty field using .css()
         var proceed = true;
@@ -45,7 +41,6 @@ $(document).ready(function() {
 				}
                 $(".modal-body").html(output);
 				$('#result').modal();
-				
             }, 'json');
 			
         }
